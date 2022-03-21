@@ -14,7 +14,7 @@ async def root():
 
 @app.get("/info", status_code=200)
 async def root():
-    server_url = "localhost:8000/info"
+    server_url = "https://pacific-depths-16329.herokuapp.com/"
     return {"url": f"{server_url}"}
 
 @app.delete("/security", status_code=401)
