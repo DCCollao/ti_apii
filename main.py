@@ -1,22 +1,7 @@
 from httplib2 import Response
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
-
-@app.get("/")
-async def root():
-    return {"message": "daniel"}
-
-@app.get("/status", status_code=204)
-async def root():
-    return
-
-@app.get("/info", status_code=200)
-async def root():
-    server_url = "https://pacific-depths-16329.herokuapp.com"
-    return {"url": f"{server_url}"}
-
-@app.delete("/security", status_code=401)
-async def root():
-    return
+app.mount("/", StaticFiles(directory="static", html=True), name="static")
